@@ -43,10 +43,10 @@ public class UesrController {
         return "pull操作";
     }
 
-  /*  public static void main(String[] args) {
-        System.out.println(UesrController.class);
+    @RequestMapping("/master")
+    public String master2(){
+        return "码云";
     }
-*/
 
     @GetMapping("/user/{id}")
     public User getById(@PathVariable("id") int id){
