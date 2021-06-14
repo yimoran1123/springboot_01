@@ -34,9 +34,9 @@ public class UesrController {
         return "hello java";
     }
 
-    @RequestMapping("/hello4")
-    public String hello4(){
-        return "hello java4";
+    @RequestMapping("/master")
+    public String master(){
+        return "master git";
     }
 
   /*  public static void main(String[] args) {
