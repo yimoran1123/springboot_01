@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ymr.mapper.UserMapper"><!--mapper:根标签  namespace: 命名空间,mapper接口的全限定名-->
+
+
+    <select id="getByName" resultType="com.ymr.pojo.User" >
+        select * from user where name like "%" #{name}
+    </select>
+
+    <!--<select id="getById" resultType="com.ymr.pojo.User" >
+        select * from user
+        <where>
+          <if test="name !=null and name != ''">
+              id=#{id}
+          </if>
+        </where>
+    </select>-->
+
+   <!-- <insert id="add" parameterType="com.ymr.pojo.User">
+        insert into user(name,sex) value(#{name},#{sex})
+    </insert>-->
+
+    <insert id="add" >
+        insert into user
+        (name,
+        <if test="sex != null and sex != ''">
+            sex,
+        </if>
+        <if test="email != null and email != ''">
+            email,
+        </if>
+        )
+        values(#{name},
+        <if test="sex != null and sex != ''">
+            #{sex},
+        </if>
+        <if test="email != null and email != ''">
+            #{email},
+        </if>
+        )
+    </insert>
+
+
+    <resultMap id="uservo" type="com.ymr.vo.UserVO">
+        <id column="id" property="idVo"></id>
+        <result column="name" property="nameVo"></result>
+        <result column="sex" property="gender"></result>
+        <result column="email" property="emailVo"></result>
+    </resultMap>
+    <select id="getByIdVo" resultMap="uservo" >
+        select * from user where id=#{id}
+    </select>
+
+
+   <select id="getAll" resultType="com.ymr.pojo.User">
+       select * from user
+      <where>
+          <if test="name != null and name!= ''">
+              and name like "%" #{name} "%"
+          </if>
+          <if test="sex != null and sex!= ''">
+              and sex=#{sex}
+          </if>
+          <if test="email != null and email!= ''">
+              and email like "%" #{email} "%"
+          </if>
+      </where>
+        order by id desc
+   </select>
+    <!--select id from t where num=10 union all select id from t where num=20  #正例-->
+    <select id="getAllByCondition" resultType="com.ymr.pojo.User">
+        select * from user where id=#{id}
+        union all
+        select * from user where id=#{id}
+    </select>
+
+    <insert id="insert" >
+        insert into sys_user
+        (user_name,user_password,
+        <if test="userEmail != null and userEmail !=''">
+            user_email,
+        </if>
+        user_info,head_img,create_time)
+
+        values(#{userName},#{userPassword},
+        <if test="userEmail != null and userEmail !=''">
+            #{userEmail},
+        </if>
+        #{userInfo},#{headImg},#{createTime})
+    </insert>
+</mapper>
