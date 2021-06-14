@@ -34,6 +34,11 @@ public class UesrController {
         return "hello java";
     }
 
+    @RequestMapping("/hello3")
+    public String hello3(){
+        return "hello java3";
+    }
+
   /*  public static void main(String[] args) {
         System.out.println(UesrController.class);
     }
