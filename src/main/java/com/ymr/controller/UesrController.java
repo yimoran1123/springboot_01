@@ -40,7 +40,7 @@ public class UesrController {
 
     @RequestMapping("/master")
     public String master(){
-        return "master git";
+        return "免密登陆";
     }
 
   /*  public static void main(String[] args) {
