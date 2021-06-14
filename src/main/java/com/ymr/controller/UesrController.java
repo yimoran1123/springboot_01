@@ -29,6 +29,10 @@ public class UesrController {
     public String hello(){
         return "hello nihao";
     }
+    @RequestMapping("/hello2")
+    public String hello2(){
+        return "hello java";
+    }
 
   /*  public static void main(String[] args) {
         System.out.println(UesrController.class);
