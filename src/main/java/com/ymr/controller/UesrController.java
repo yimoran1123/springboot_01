@@ -33,6 +33,10 @@ public class UesrController {
     public String hello2(){
         return "hello java";
     }
+    @RequestMapping("/hello3")
+    public String hello3(){
+        return "hello java3";
+    }
 
     @RequestMapping("/master")
     public String master(){
