@@ -40,7 +40,7 @@ public class UesrController {
 
     @RequestMapping("/master")
     public String master(){
-        return "免密登陆";
+        return "免密登陆_修改代码";
     }
 
   /*  public static void main(String[] args) {
