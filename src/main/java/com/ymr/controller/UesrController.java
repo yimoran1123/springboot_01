@@ -34,9 +34,9 @@ public class UesrController {
         return "hello java";
     }
 
-    @RequestMapping("/hello3")
-    public String hello3(){
-        return "hello java3";
+    @RequestMapping("/hello4")
+    public String hello4(){
+        return "hello java4";
     }
 
   /*  public static void main(String[] args) {
